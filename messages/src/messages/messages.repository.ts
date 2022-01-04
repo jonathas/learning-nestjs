@@ -1,6 +1,6 @@
 import { readFile, writeFile } from "fs/promises";
 
-export class MessageRepository {
+export class MessagesRepository {
     private async getFile() {
         const contents = await readFile('messages.json', 'utf8');
         return JSON.parse(contents);
@@ -19,7 +19,7 @@ export class MessageRepository {
     public async create(content: string) {
         const messages = await this.getFile();
 
-        const id = (Math.random() * 999);
+        const id = Math.floor(Math.random() * 999);
 
         messages[id] = { id, content };
 
