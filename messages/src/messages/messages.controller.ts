@@ -4,13 +4,7 @@ import { MessagesService } from './messages.service';
 
 @Controller('messages')
 export class MessagesController {
-    messagesService: MessagesService;
-
-    constructor() {
-        // Service is creating its own dependencies
-        // Don't do this in real NestJS apps!
-        this.messagesService = new MessagesService();
-    }
+    constructor(public messagesService: MessagesService) {}
 
     @Get()
     listMessages() {
