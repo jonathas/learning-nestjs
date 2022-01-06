@@ -15,10 +15,10 @@ import { Report } from './reports/report.entity';
       type: 'sqlite',
       database: 'db.sqlite',
       entities: [User, Report], // repositories
-      synchronize: true, // not to be used in production!
-    }),
+      synchronize: true // not to be used in production!
+    })
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService]
 })
 export class AppModule {}

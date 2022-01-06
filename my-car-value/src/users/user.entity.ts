@@ -4,7 +4,7 @@ import {
   Column,
   PrimaryGeneratedColumn,
   AfterUpdate,
-  AfterRemove,
+  AfterRemove
 } from 'typeorm';
 
 @Entity()

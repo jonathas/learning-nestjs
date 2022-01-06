@@ -7,6 +7,6 @@ import { ReportsService } from './reports.service';
 @Module({
   imports: [TypeOrmModule.forFeature([Report])], // creates repository
   controllers: [ReportsController],
-  providers: [ReportsService],
+  providers: [ReportsService]
 })
 export class ReportsModule {}
