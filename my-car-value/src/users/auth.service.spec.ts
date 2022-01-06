@@ -40,29 +40,32 @@ describe('AuthService', () => {
     expect(hash).toBeDefined();
   });
 
-  it('throws an error if user signs up with email that is in use', async () => {
+  it('throws an error if user signs up with email that is in use', async (done) => {
     try {
       await service.signup('asdf@asdf.com', 'asdf');
       await service.signup('asdf@asdf.com', 'asdf');
     } catch (err) {
       expect(err.message).toBe('This email is already in use');
+      done();
     }
   });
 
-  it('throws if signin is called with an unused email', async () => {
+  it('throws if signin is called with an unused email', async (done) => {
     try {
       await service.signin('afwagawgaw@gawa.com', 'gasfa');
     } catch (err) {
       expect(err.message).toBe('E-mail or password incorrect');
+      done();
     }
   });
 
-  it('throws if an invalid password is provided', async () => {
+  it('throws if an invalid password is provided', async (done) => {
     try {
       await service.signup('asdf@asdf.com', '1234');
       await service.signin('asdf@asdf.com', 'gasfa');
     } catch (err) {
       expect(err.message).toBe('E-mail or password incorrect');
+      done();
     }
   });
 
