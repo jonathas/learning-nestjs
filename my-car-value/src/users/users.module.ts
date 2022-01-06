@@ -13,7 +13,10 @@ import { UsersService } from './users.service';
   providers: [
     UsersService,
     AuthService,
-    { provide: APP_INTERCEPTOR, useClass: CurrentUserInterceptor } // Globally scoped interceptor
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: CurrentUserInterceptor
+    } // Globally scoped interceptor
   ]
 })
 export class UsersModule {}
